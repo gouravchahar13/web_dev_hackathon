@@ -129,11 +129,10 @@ def logout_pg(request):
 def delete_user(request,id):
     user = User.objects.filter(username=id)
     email=user[0].email
-    first_name=user[0].first_name
     user.delete()
     send_mail(
     f"Account Deletion!!!!!",
-    f"Greetings {first_name} , \n You Have successfully deleted your account with username {user[0].username} on BIT_TECH_HUB",
+    "Greetings  ,  You Have successfully deleted your account with username  on BIT_TECH_HUB",
     "tutorialjaat13@gmail.com",
     [email,],
     fail_silently=False,

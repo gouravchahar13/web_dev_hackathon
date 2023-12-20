@@ -130,7 +130,7 @@ STATIC_DIR={
 }
 
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'public/images')
+MEDIA_ROOT= os.path.join(BASE_DIR,'public/images')
 MEDIA_URL='/media/'
 
 # Default primary key field type
