@@ -1,0 +1,74 @@
+{%extends 'base.html'%}
+
+{%block main%}
+<h2 class="container pt-3 mb-4">BIT_TECH_HUB : Empowering Innovation, Connecting Minds </h2>
+<hr>
+
+<!-- search button  -->
+<div class="container ">
+<form class="d-flex" role="search">
+  <input class="form-control me-auto" width="2rem" name="search" type="search" placeholder="Looking to learn new tech?" aria-label="Search">
+  <button class="btn btn-danger " >Search</button>
+</form>
+</div>
+
+<!-- <div class="container">
+  <a href="/send_mail/" class="btn btn-success">send email</a>
+</div> -->
+
+<br><br>
+
+<!-- cards for showcase -->
+
+<div class="container col-7">
+  <div class="row">
+{%for recipe in recipe%}
+<div class="card m-2 mb-4 border-black" >
+  <div class="card-header border-black">
+    <h2 class="text-danger text-capitalize ">{{recipe.Recipe_name}}</h2>
+    
+  </div>
+  <div class="container col-4">
+  <img src="/media/{{recipe.Recipe_Img}}" class="card-img" alt="img_missing">
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text text-center text-capitalize fw-bolder">{{recipe.Recipe_Desciption}}</p>
+    <div class="container col-lg-3  align-items-center">
+    <a href="/update-recipe/{{recipe.id}}" class="btn btn-danger ">Update</a>
+    <a href="/delete-recipe/{{recipe.id}}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>
+{%endfor%}
+</div>
+</div>
+
+
+<!-- heading for form  -->
+<div class="card-header">
+  <h2 class="text-center  text-bg-primary">Create a new post</h2>
+</div>
+
+<!-- form for addition -->
+<form class="container mt-3 card shadow-lg" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h2>Start blog here</h2>
+    <hr>
+    <div class="mb-3">
+      <label for="Recipe_name" class="form-label">Technology_Name</label>
+      <input id="Recipe_name" required type="text" class="form-control" name="Recipe_name" >
+      
+    </div>
+    <div class="mb-3">
+      <label for="Recipe_Desciption" class="form-label">Technology_used_in</label>
+      <textarea id="Recipe_Desciption" required name="Recipe_Desciption" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="Form_image"  class="form-label">Image</label>
+        <input id="Form_image" required type="file" class="form-control" name="Recipe_Img" >
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{%endblock main%}

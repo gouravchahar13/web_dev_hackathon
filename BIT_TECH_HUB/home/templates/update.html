@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block main%}
+<h2 class="text-capitalize text-center text-bg-success">Updating  {{Recipe.Recipe_name}}</h2>
+
+<form class="container mt-5 card shadow-lg" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h2 class="text-center">Update Blog</h2>
+    <hr>
+    <div class="mb-3">
+        <label for="Recipe_name" class="form-label"> Edit Technology_name</label>
+        <input id="Recipe_name" value='{{Recipe.Recipe_name}}' required type="text" class="form-control" name="Recipe_name" >
+    
+    </div>
+    <div class="mb-3">
+        <label for="Recipe_Desciption" class="form-label">Edit Technology_Desciption</label>
+        <textarea id="Recipe_Desciption"  required name="Recipe_Desciption" class="form-control">{{Recipe.Recipe_Desciption}}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="Form_image"  class="form-label">Upload a new Image</label>
+        <input id="Form_image" required type="file" class="form-control" name="Recipe_Img" >
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+    <a href="/" class="btn btn-primary">Go Back</a>
+</form>
+
+{%endblock main%}

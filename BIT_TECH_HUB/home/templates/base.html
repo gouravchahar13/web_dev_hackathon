@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIT_Tech_Hub</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="{%static './css/style.css'%}"> -->
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <nav  class="navbar p-3 navbar-expand-lg bg-primary shadow  ">
+      <div id="main" class="container-fluid bg-primary" id="main">
+       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li> -->
+            <ul><a class="navbar-brand text-center text-bg-primary fw-bold"  href="/">BIT_TECH_HUB</a></ul>
+          </ul>
+          <img src="media/user.png" alt="missing" width="50px" height="50px" class=" rounded-circle">
+            {%if request.user.is_authenticated%}
+            <div class="dropdown ">
+              
+              <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{request.user}}
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/logout/" class="dropdown-item btn btn-secondary rounded" >Logout</a></li>
+                <li><a href="/delete/{{request.user}}" class="dropdown-item btn btn-secondary rounded" >Delete</a></li>
+              </ul>
+            </div>
+            
+            {%else%}
+            <a href="/login/" class="btn btn-secondary rounded" >Login</a>
+            {%endif%}
+          
+        </div>
+      </div>
+    </nav>
+    {% block main%} 
+    
+    {%endblock main%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+  </body>
+</html>
+

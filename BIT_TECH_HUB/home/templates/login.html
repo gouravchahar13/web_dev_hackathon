@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block main%}
+<h2 class="text-center fw-bold text-dark">Login</h2>
+
+{% if messages %}
+<div class="alert alert-primary" role="alert">
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+</div>
+{% endif %}
+{%if request.user.is_authenticated%}
+<div class="container">
+    <a href="/" class="btn btn-success col-3">Explore Site →</a>
+</div>
+{%endif%}
+<form class="container mt-3 card shadow-lg" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h2>Login</h2>
+    <hr>
+    
+    <div class="mb-3">
+        <label for="u_n" class="form-label">User-name</label>
+        <input type="text" name="username" class="form-control" id="u_n" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <p>Don't Have a account? <a href="/register/">Register Now</a></p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{%endblock main%}
