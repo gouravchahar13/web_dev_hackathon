@@ -16,7 +16,7 @@ Our site currently uses the <b> developmental server </b> that is provided by<b>
 # How to start the server
 <ul>
   <li> install python in your system by  <a href="https://www.python.org/downloads/">Clicking Here</a></li>
-  <li>Install the django framework on your system by using the command <font color="blue" style="color:blue"> pip install django </font></li>
-<li>Navigate to the folder containing <b> Manage.py </b> Then run the command <font color="blue"style="color:blue"> python manage.py runserver </font> </li>
-<li>Open your browser and type <font color="blue" style="color:blue"> localhost:8000 </font> </li>
+  <li>Install the django framework on your system by using the command <b>' pip install django '</b></li>
+<li>Navigate to the folder containing <b> Manage.py </b> Then run the command <b> 'python manage.py runserver '</b> </li>
+<li>Open your browser and type <b> 'localhost:8000' </b> </li>
 </ul>
